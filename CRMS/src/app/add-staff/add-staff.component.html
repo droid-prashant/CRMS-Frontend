@@ -1,0 +1,89 @@
+
+<u>
+    <h3 class="heading" style="text-align: center; margin-top: 50px;">Staff Record Entry</h3>
+</u>
+<div class="container"  style="margin-top: 50px;">
+    <form>
+        <div >
+            <h1>file upload</h1>
+            <input type="file" name="username" (change)=onFileSelected($event) [(ngModel)]="username">
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="col">
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" [(ngModel)]=policeStaffRegistration.firstName class="form-control"
+                    placeholder="First Name" required>
+            </div>
+            <div class="col">
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" [(ngModel)]=policeStaffRegistration.lastName class="form-control"
+                    placeholder="Last Name" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="phNum">Phone number</label>
+                <input type="number" class="form-control" [(ngModel)]=policeStaffRegistration.phoneNumber
+                    name="phoneNumber" placeholder="Phone number" required>
+
+            </div>
+            <div class="col">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" name="address" [(ngModel)]=policeStaffRegistration.address
+                    placeholder="Address" required>
+
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="age">Age</label>
+                <input type="number" class="form-control" name="age" [(ngModel)]=policeStaffRegistration.age
+                    placeholder="Age">
+
+            </div>
+            <div class="col">
+                <label for="gender">Gender</label>
+                <select class="form-control" name="gender" [(ngModel)]=policeStaffRegistration.gender>
+                    <option selected>Choose your gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="batchNumber">Batch Number</label>
+                <input type="number" name="batchNumber" [(ngModel)]=policeStaffRegistration.batchNumber
+                    class="form-control" placeholder="Batch Number">
+            </div>
+            <div class="col">
+                <label for="rank">Rank</label>
+                <select class="form-control" name="rank" [(ngModel)]=policeStaffRegistration.rank>
+                    <option selected>Choose Rank</option>
+                    <option value="SP.">SP.</option>
+                    <option value="DSP.">DSP.</option>
+                    <option value="Insp.">Insp.</option>
+                    <option value="SI.">SI.</option>
+                    <option value="ASI.">ASI.</option>
+                    <option value="Const.">Const.</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="joinedDateInPolice">Joined Date</label>
+                <input type="date" name="joinedDateInPolice" [(ngModel)]=policeStaffRegistration.joinedDateInPolice
+                    class="form-control" style="width: 50%;">
+            </div>
+            <div class="col">
+                <label for="username">Username</label>
+                <input type="text" name="username" [(ngModel)]="username" class="form-control" style="width: 50%;" required>
+            </div>
+        </div>
+        <button class="btn btn-primary" style="margin-top: 10px;" (click)="staffEntry()">Submit</button>
+        <button class="btn btn-danger" style="margin-top: 10px;margin-left: 10px;"
+            routerLink="/admin-dashboard">Cancel</button>
+    </form>
+</div>

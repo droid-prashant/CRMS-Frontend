@@ -1,0 +1,193 @@
+<Button class="btn btn-primary" style="margin-top: 5px;
+margin-bottom: 5px;" data-toggle="modal" data-target="#addCriminal">Add Criminal</Button>
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Crime</th>
+        <th>Punishment</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of criminalList">
+            <td>{{data.id}}</td>
+            <td>{{data.firstName}}</td>
+            <td>{{data.lastName}}</td>
+            <td>{{data.crimeDone}}</td>
+            <td>{{data.punishmentDetails}}</td>
+            <td><Button class="btn btn-primary" style="margin-right: 5px;"
+                (click)="fetchedId(data.id)" data-toggle="modal" data-target="#getCriminal">Detail</Button>
+                <Button class="btn btn-primary">Edit</Button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal to add new Criminal Record -->
+<div class="modal fade" id="addCriminal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add Criminal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="width: 500px;">
+                <div class="container">
+                    <form>
+                        <div class="form-row" style="margin-top: 20px;">
+                            <div class="col">
+                                <input type="text" name="firstName" [(ngModel)]="criminalRecord.firstName" class="form-control" placeholder="First Name"
+                                    required>
+                            </div>
+                            <div class="col">
+                                <input type="text" name="lastName" [(ngModel)]="criminalRecord.lastName" class="form-control" placeholder="Last Name"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-row" style="margin-top: 10px;">
+                            <div class="col">
+                                <select name="gender" [(ngModel)]="criminalRecord.gender" class="form-control">
+                                    <option selected>Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="age" [(ngModel)]="criminalRecord.age" placeholder="Age" required>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-top: 10px;">
+                            <div class="col">
+                                <input type="date" class="form-control" [(ngModel)]="criminalRecord.dateOfBirth" name="dateOfBirth" required>
+                            </div>
+                            <div class="col">
+                                <input type="number" class="form-control" [(ngModel)]="criminalRecord.citizenshipId" name="citizenshipId"
+                                    placeholder="Citizenship Number" required>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-top: 10px;">
+                            <div class="col">
+                                <input type="text" name="address" [(ngModel)]="criminalRecord.address" class="form-control" placeholder="Address" required>
+                            </div>
+                            <div class="col">
+                                <input type="text" name="telNo" [(ngModel)]="criminalRecord.telNo" class="form-control" placeholder="Telephone">
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-top: 10px;">
+                            <div class="col">
+                                <input type="text" name="crimeDone" [(ngModel)]="criminalRecord.crimeDone" class="form-control" placeholder="Crime" required>
+                            </div>
+                            <div class="col">
+                                <input type="text" name="punishmentDetails" [(ngModel)]="criminalRecord.punishmentDetails" class="form-control" placeholder="Punishment">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="addCrimijalRecord()">Submit</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal to View a Criminal Record -->
+<div class="modal fade" id="getCriminal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Detail View</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="width: 500px;">
+                <div class="container">
+                    <form>
+                        <div class="form-row" style="margin-top: 20px;">
+                            <div class="col">
+                                <label for="firstName">First Name</label>
+                                <input type="text" name="firstName" 
+                                [(ngModel)]="criminalInfo.firstName" 
+                                class="form-control" readonly>
+                            </div>
+                            <div class="col">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" name="lastName" 
+                                [(ngModel)]="criminalInfo.lastName" 
+                                class="form-control" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-row" style="margin-top: 10px;">
+                            <div class="col">
+                                <label for="gender">Gender</label>
+                                <input type="text" name="gender" 
+                                [(ngModel)]="criminalInfo.gender" 
+                                class="form-control" readonly>
+                            </div>
+                            <div class="col">
+                                <label for="age">Age</label>
+                                <input type="text" class="form-control" name="age" 
+                                [(ngModel)]="criminalInfo.age" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-top: 10px;">
+                            <div class="col">
+                                <label for="date">Date</label>
+                                <input type="date" class="form-control" 
+                                [(ngModel)]="criminalInfo.dateOfBirth" 
+                                name="dateOfBirth" readonly>
+                            </div>
+                            <div class="col">
+                                <label for="citizenshipId">Citizenship Number</label>
+                                <input type="number" class="form-control" 
+                                [(ngModel)]="criminalInfo.citizenshipId" 
+                                name="citizenshipId" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-top: 10px;">
+                            <div class="col">
+                                <label for="address">Address</label>
+                                <input type="text" name="address" 
+                                [(ngModel)]="criminalInfo.address" 
+                                class="form-control" readonly>
+                            </div>
+                            <div class="col">
+                                <label for="telNo">Telephone</label>
+                                <input type="text" name="telNo" 
+                                [(ngModel)]="criminalInfo.telNo" 
+                                class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-top: 10px;">
+                            <div class="col">
+                                <label for="crimeDone">Crime</label>
+                                <input type="text" name="crimeDone" 
+                                [(ngModel)]="criminalInfo.crimeDone" 
+                                class="form-control" readonly>
+                            </div>
+                            <div class="col">
+                                <label for="punishmentDetails">Punishment</label>
+                                <input type="text" name="punishmentDetails" 
+                                [(ngModel)]="criminalInfo.punishmentDetails" 
+                                class="form-control" readonly>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

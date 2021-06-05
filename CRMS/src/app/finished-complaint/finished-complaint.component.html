@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>Complainer's name</th>
+        <th>Phone number</th>
+        <th>Complaint</th>
+        <th>Remark</th>
+        <th>Action</th>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of allFinishedComplaints">
+            <td>{{data.id}}</td>
+            <td>{{data.pr.firstName}}</td>
+            <td>{{data.pr.phNum}}</td>
+            <td>{{data.pr.incidentDetails}}</td>
+            <td>{{data.remark}}</td>
+            <td><Button class="btn btn-primary"
+                routerLink="/finished-complaint-details/{{data.ac.pr.publicId}}">Detail</Button>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>

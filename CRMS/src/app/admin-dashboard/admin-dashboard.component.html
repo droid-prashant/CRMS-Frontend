@@ -1,0 +1,87 @@
+<table class="table">
+    <thead>
+        <th>publicId</th>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>phNum</th>
+        <th>incidentDetails</th>
+        <th>incidentAddress</th>
+        <th>remark</th>
+
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of unAssignedComplaints">
+            <td>{{data.publicId}}</td>
+            <td>{{data.firstName}}</td>
+            <td>{{data.lastName}}</td>
+            <td>{{data.phNum}}</td>
+            <td>{{data.incidentDetails}}</td>
+            <td>{{data.incidentAddress}}</td>
+            <td>{{data.remark}}</td>
+            <td><button data-toggle="modal" class="btn btn-primary"
+                 data-target="#viewComplaint"
+                  (click)="fetchId(data.publicId)" >view</button>
+                 <button class="btn btn-primary" data-toggle="modal"
+                  data-target="#recruitOfficer"
+                    (click)="fetchId(data.publicId)" style="margin-left: 5px;">assign</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="recruitOfficer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Assign Case Incharge</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form">
+                        <!--     <div class="col-auto"> -->
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <select id="officers" (change)="selectChangeDesignationHandler($event)">
+                                        <option value=" ">Select Post</option>
+                                        <option value="SP.">SP.</option>
+                                        <option value="DSP.">DSP.</option>
+                                        <option value="Insp.">Insp.</option>
+                                        <option value="SI.">SI.</option>
+                                        <option value="ASI.">ASI.</option>
+                                        <option value="Const.">Const.</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group-text">
+                                <select id="officers" (change)="selectChange($event)">
+                                    <option>--select Officer--</option>
+                                    <option *ngFor="let data of officer" value="{{data.id}}" >{{data.firstName}}&nbsp;{{data.lastName}}</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" name="nameOfOfficer" [(ngModel)]="nameOfOfficer" id="inlineFormInputGroup"
+                                placeholder="Officer Name">
+                        </div>
+                        <!--  </div> -->
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="btn">
+                    <button class="btn btn-primary" (click)="recruitNow()">Recruit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+ 

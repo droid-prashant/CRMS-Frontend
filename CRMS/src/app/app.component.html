@@ -1,0 +1,80 @@
+<marquee behavior="scroll" direction="left" scrollamount="18">
+    <h1 class="font-weight-light text-center">"Those who hate us, will call us, when they need us"</h1>
+</marquee>
+<br>
+<div>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info text-light">
+
+            <a class="text-dark font-weight-bold mr-5" href="./app.component.html">
+                <h1>Home</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportContent"
+                aria-controls="navbarSupportContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" routerLink="register-complaint">Register Complaint</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" routerLink="admin-login">Admin Login</a>
+                            <a class="dropdown-item" routerLink="staff-login">Staff Login</a>
+                        </div>
+                    </li>
+                    <li><a href="#" class="nav-link dropdown" style="margin-left: 10px;">About App</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div>
+
+        <div class="wrapper" >
+            <!-- Sidebar -->
+            <nav id="sidebar" *ngIf="isLoggedIn" >
+                <div class="sidebar-header">
+                    <a class="text" routerLink="/admin-dashboard"><h3>Admin Dashboard</h3></a>
+                </div>
+
+                <ul id="list" class="list-unstyled components">
+                    <li>
+                        <a routerLink="/criminal-record">Criminal Record</a>
+                    </li>
+        
+          <li class="c" [hidden]="staffLog">
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">Account</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a routerLink="/view-staffs">Staff Record</a>
+                            </li>
+                            <li>
+                                <a routerLink="/staff-account">SignUp </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">View
+                            Complaints</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a routerLink="/assigned-complaint">Assigned Complaints</a>
+                            </li>
+                            <li>
+                                <a routerLink="/finished-complaint">Finished Complaints</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a (click)="logout()">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="container-fluid">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,23 @@
+<u>
+    <h3 class="heading" style="text-align: center; margin-top: 50px;">Staff Registration</h3>
+  </u>
+  
+  <div class="container" style="width: max-content; margin-top: 50px;">
+    <form>
+      <div class="col">
+        <label for="username">Username</label>
+        <input type="text" name="username" [(ngModel)]="signupRequest.username"  class="form-control" placeholder="Username" required>
+      </div>
+      <div class="col">
+        <label for="email">Email</label>
+        <input type="email" name="email" [(ngModel)]="signupRequest.email"   class="form-control" placeholder="Email" required>
+      </div>
+      <div class="col">
+        <label for="password">Password</label>
+        <input type="password" name="password" [(ngModel)]="signupRequest.password"  class="form-control" placeholder="Password" required>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary" style="margin-top: 10px; width:400px;" routerLink="/add-staff" (click)="regStaff()">Next</button>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,69 @@
+<table class="table" *ngIf="user">
+    <thead>
+        <th>Id</th>
+        <th>Complainer's name</th>
+        <th>Phone number</th>
+        <th>Remark</th>
+        <th>Action</th>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of assignComplaints">
+            <td>{{data.pr.publicId}}</td>
+            <td>{{data.pr.firstName}}</td>
+            <td>{{data.pr.phNum}}</td>
+       
+            <td>{{data.remark}}</td>
+            <td><button class="btn btn-primary" data-toggle="modal"
+                 data-target="#view" routerLink="/view/{{data.id}}">view</button>
+                 <button class="btn btn-primary" data-toggle="modal" 
+                 data-target="#confirmMove" style="margin-left: 5px;"
+                (click)="fetchedId(data.pr.publicId,data.id)">solved</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table" *ngIf="admin">
+    <thead>
+        <th>Id</th>
+        <th>Complainer's name</th>
+        <th>Phone number</th>
+     
+        <th>Remark</th>
+        <th>Action</th>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of allAssigned">
+            <td>{{data.pr.publicId}}</td>
+            <td>{{data.pr.firstName}}</td>
+            <td>{{data.pr.phNum}}</td>
+       
+            <td>{{data.remark}}</td>
+            <td><button class="btn btn-primary" data-toggle="modal" 
+                data-target="#view" routerLink="/view/{{data.id}}">view</button>
+                <button class="btn btn-primary" data-toggle="modal" 
+                data-target="#confirmMove" style="margin-left: 5px;" 
+                (click)="fetchedId(data.pr.publicId,data.id)">solved</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal for Confirm movement of case to finished -->
+
+<div class="modal fade" id="confirmMove" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Are you sure case is completed</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" routerLink="/assigned-complaint" (click)="finishedComplaints()" >Yes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,28 @@
+<u>
+    <h3 class="heading" style="text-align: center; margin-top: 50px;">Admin Login</h3>
+  </u>
+  
+  <div class="container" style="width: max-content; margin-top: 50px;">
+    <form>
+      <div class="col">
+        <label for="username">Username</label>
+        <input type="text" name="username" [(ngModel)]="loginRequest.username"  class="form-control" placeholder="Username" required>
+      </div>
+      <div class="col">
+        <label for="password">Password</label>
+        <input type="password" name="password" [(ngModel)]="loginRequest.password"  class="form-control" placeholder="Password" required>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary" style="margin-top: 10px; width:400px;" (click)="onSubmit()">Login</button>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <a routerLink="forgetPassword" style="margin-left: 150px;">Forget Password</a>
+        </div>
+        
+      </div>
+      <div>
+        <small class="text-danger" style="margin-left: 85px;">{{msg}}</small>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,74 @@
+<br>
+<u>
+    <h3 class="heading" style="text-align: center;">Register a Complaint</h3>
+</u>
+<br>
+<div class="container">
+<form>
+    <div class="form-row">
+        <div class="col">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" [(ngModel)]="publicRegistration.firstName" name="firstName" placeholder="First Name" required>
+       
+        </div>
+        <div class="col">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" [(ngModel)]="publicRegistration.lastName" name="lastName" placeholder="Last Name" required>
+       
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <label for="phNum">Phone number</label>
+            <input type="number" class="form-control" [(ngModel)]="publicRegistration.phNum" name="phNum" placeholder="Phone number" required>
+    
+        </div>
+        <div class="col">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" [(ngModel)]="publicRegistration.address" name="address" placeholder="Address" required>
+       
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <label for="age">Age</label>
+            <input type="number" class="form-control" [(ngModel)]="publicRegistration.age" name="age" placeholder="Age">
+      
+        </div>
+        <div class="col">
+            <label for="citizenshipNumber">Citizenship Number</label>
+            <input type="text" class="form-control" [(ngModel)]="publicRegistration.citizenshipNumber" name="citizenshipNumber" placeholder="Citizenship Number">
+      
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            
+            <label for="gender">Gender</label>
+            <select class="form-control" [(ngModel)]="publicRegistration.gender" name="gender">
+                <option selected>Choose your gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+         
+        </div>
+        <div class="col">
+            <label for="incidentAddress">Incident Address</label>
+            <input type="text" name="incidentAddress" class="form-control" [(ngModel)]="publicRegistration.incidentAddress" id="incidentAddress" placeholder="Incident Address" required>
+       
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <label for="incidentDetail">Incident Detail</label><br>
+            <textarea name="incidentDetail" [(ngModel)]="publicRegistration.incidentDetails" id="incidentDetail" cols="100" rows="5" required></textarea>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <button class="btn btn-primary" style="margin-top: 10px;margin-bottom: 40px;" (click)="registerNow()">Register</button>
+        </div>
+    </div>
+</form>
+</div>

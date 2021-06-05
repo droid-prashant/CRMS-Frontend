@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+        <th>id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>Phone num</th>
+        <th>Rank</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of getStaff">
+            <td>{{data.id}}</td>
+            <td>{{data.firstName}}</td>
+            <td>{{data.age}}</td>
+            <td>{{data.address}}</td>
+            <td>{{data.phoneNumber}}</td>
+            <td>{{data.rank}}</td>
+        </tr>
+    </tbody>
+</table>
